@@ -5,11 +5,10 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ContactState from "./context/contact/ContactState";
-import ContacState from "./context/contact/ContactState";
 
 const App = () => {
   return (
-    <ContacState>
+    <ContactState>
       <Router>
         <Fragment>
           <Navbar />
@@ -21,7 +20,7 @@ const App = () => {
           </div>
         </Fragment>
       </Router>
-    </ContacState>
+    </ContactState>
   );
 };
 
