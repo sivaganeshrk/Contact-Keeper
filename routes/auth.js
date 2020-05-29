@@ -9,7 +9,7 @@ const auth = require("../middleware/auth");
 
 // @route    POST /api/auth
 // @desc     new user login
-// @access   Private
+// @access   Public
 router.post(
   "/",
   [
