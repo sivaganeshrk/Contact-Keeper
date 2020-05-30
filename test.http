@@ -1,0 +1,2 @@
+GET  http://localhost:5000/api/contacts
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVkMWU2OTk3NDllZjgzYWIwNTQ1YTFmIn0sImlhdCI6MTU5MDgxNDM2MSwiZXhwIjoxNTkxMTc0MzYxfQ._PKwPRK728YU24-KgJ5WT0ZsR2k5O6hXqHiZbIArwTc
