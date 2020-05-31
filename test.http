@@ -1,2 +1,26 @@
 GET  http://localhost:5000/api/contacts
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVkMWU2OTk3NDllZjgzYWIwNTQ1YTFmIn0sImlhdCI6MTU5MDgxNDM2MSwiZXhwIjoxNTkxMTc0MzYxfQ._PKwPRK728YU24-KgJ5WT0ZsR2k5O6hXqHiZbIArwTc
+###
+
+POST http://localhost:5000/api/contacts
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVkMWU2OTk3NDllZjgzYWIwNTQ1YTFmIn0sImlhdCI6MTU5MDgxNDM2MSwiZXhwIjoxNTkxMTc0MzYxfQ._PKwPRK728YU24-KgJ5WT0ZsR2k5O6hXqHiZbIArwTc
+Content-Type: application/json
+
+{
+  "name":"siva Test",
+  "email":"sivatest@gmail.com",
+  "phone":"9832904023",
+  "type":"personal"
+}
+###
+PUT http://localhost:5000/api/contacts/5ed3c0d0d96e528a99749b73
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVkMWU2OTk3NDllZjgzYWIwNTQ1YTFmIn0sImlhdCI6MTU5MDgxNDM2MSwiZXhwIjoxNTkxMTc0MzYxfQ._PKwPRK728YU24-KgJ5WT0ZsR2k5O6hXqHiZbIArwTc
+Content-Type: application/json
+
+{
+  "name":"siva"
+}
+
+###
+DELETE http://localhost:5000/api/contacts/5ed3c144d96e528a99749b74
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVkMWU2OTk3NDllZjgzYWIwNTQ1YTFmIn0sImlhdCI6MTU5MDgxNDM2MSwiZXhwIjoxNTkxMTc0MzYxfQ._PKwPRK728YU24-KgJ5WT0ZsR2k5O6hXqHiZbIArwTc
