@@ -1,11 +1,23 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
+import AuthContext from "../../context/auth/authContext";
 
-const Register = () => {
+const Register = (props) => {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
+  const { register, error, clearErrors, isAuthenticated } = authContext;
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
+    if (error === "User already exist") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+  }, [error, isAuthenticated, props.history]);
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -22,7 +34,7 @@ const Register = () => {
     } else if (password !== password2) {
       setAlert("Password do not match", "danger");
     } else {
-      console.log("Register Submit");
+      register({ name, email, password });
     }
   };
   return (
@@ -55,6 +67,7 @@ const Register = () => {
             value={password}
             onChange={onChange}
             placeholder="Enter your password"
+            minLength="6"
           />
           <label htmlFor="password2">Confirm Password</label>
           <input
@@ -63,6 +76,7 @@ const Register = () => {
             value={password2}
             onChange={onChange}
             placeholder="Re-enter your password"
+            minLength="6"
           />
         </div>
         <input

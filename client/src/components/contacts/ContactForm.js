@@ -1,16 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
 
 const ContactForm = () => {
-  const [contact, setContact] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    type: "personal",
-  });
-
   const contactContext = useContext(ContactContext);
-  const { name, email, phone, type } = contact;
+
   const { addContact, updateContact, clearCurrent, current } = contactContext;
 
   useEffect(() => {
@@ -26,21 +19,26 @@ const ContactForm = () => {
     }
   }, [contactContext, current]);
 
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    type: "personal",
+  });
+
+  const { name, email, phone, type } = contact;
+
   const onChange = (e) =>
     setContact({ ...contact, [e.target.name]: e.target.value });
+
   const onSubmit = (e) => {
     e.preventDefault();
-    if (contact === null) {
+    if (current === null) {
       addContact(contact);
     } else {
       updateContact(contact);
     }
-    setContact({
-      name: "",
-      email: "",
-      phone: "",
-      type: "personal",
-    });
+    clearAll();
   };
 
   const clearAll = () => {
@@ -80,7 +78,7 @@ const ContactForm = () => {
         value="personal"
         checked={type === "personal"}
         onChange={onChange}
-      />
+      />{" "}
       Personal{" "}
       <input
         type="radio"
@@ -88,7 +86,7 @@ const ContactForm = () => {
         value="professional"
         checked={type === "professional"}
         onChange={onChange}
-      />
+      />{" "}
       Professional
       <div>
         <input
@@ -97,13 +95,13 @@ const ContactForm = () => {
           className="btn btn-primary btn-block"
         />
       </div>
-      <div>
-        {current && (
+      {current && (
+        <div>
           <button className="btn btn-light btn-block" onClick={clearAll}>
             Clear
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </form>
   );
 };
