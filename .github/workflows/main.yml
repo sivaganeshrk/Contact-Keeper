@@ -17,8 +17,6 @@ jobs:
     steps:
       - name : "Test"
         id : "test"
-        run: |
-          echo "::set-output name=Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.home }}!"
+        run: echo "::set-output name=Hello ${{ github.event.inputs.name }}!"
       
       - run: echo "The selected color is ${{ steps.test.outputs.name }}"
